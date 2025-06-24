@@ -5,7 +5,7 @@
 set -e
 
 
-git pull origin/main
+git pull origin main
 
 php8.1 composer.phar install --no-dev --optimize-autoloader
 
