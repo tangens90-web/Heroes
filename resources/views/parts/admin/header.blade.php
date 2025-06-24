@@ -17,33 +17,25 @@
                       
                 
                  {{-- <a href="{{ route('user') }}" class='{{ active_link('user*', 'text-red-500' ) }}' rel="noopener noreferrer">{{ __('Юзер') }}</a> --}}
-               <x-tab href="{{ route('players') }}" class="{{ active_link('player*', 'text-red-500') }}" text="{{ __('Игроки') }}" >
+               {{-- <x-tab href="{{ route('players') }}" class="{{ active_link('player*', 'text-red-500') }}" text="{{ __('Игроки') }}" >
                 
                </x-tab>
                {{-- <x-tab href="{{ route('tournaments') }}" class="{{ active_link('tournament*', 'text-red-500') }}" text="{{ __('Турниры') }}" /> --}}
-               <x-tab href="{{ route('blog') }}" class="{{ active_link('blog*', 'text-red-500') }}" text="{{ __('Статьи') }}" />
+             
              </div>
 
              @auth
                  <!-- Пользователь авторизован: показываем его имя -->
-                 <a href="{{ route('user.posts', ['name' => Auth::user()->name]) }}"> {{ Auth::user()->name }} </a>
-                 <li></li>
+                 Добро пожаловать в админ панель {{ Auth::user()->name }}
+               
+                
                  <form method="POST" action="{{ route('logout') }}">
                      @csrf
                      <button type="submit">Выход</button>
                  </form>
              @else
                  <!-- Не авторизован: показываем вход и регистрацию -->
-                 <ul>
-                     <li>
-                         <a href="{{ route('login') }}" class='{{ active_link('login', 'text-red-500') }}'
-                             rel="noopener noreferrer">{{ __('Вход') }}</a>
-                     </li>
-                     <li>
-                         <a href="{{ route('register') }}" class='{{ active_link('register', 'text-red-500') }}'
-                             rel="noopener noreferrer">{{ __('Регистрация') }}</a>
-                     </li>
-                 </ul>
+               
              @endauth
 
          </div>

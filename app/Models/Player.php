@@ -12,4 +12,15 @@ class Player extends Model
     {
         return $this->hasMany(Result::class);
     }
+    protected $fillable = [
+        'username',
+        'name',
+        'surname',
+        'country',
+        'birthday',
+        'avatar'
+    ];
+    protected $casts = [
+    'birthday' => 'date', 
+];
 }

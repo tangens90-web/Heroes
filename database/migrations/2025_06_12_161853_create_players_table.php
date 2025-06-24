@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('birthday')->nullable();
+            $table->string('rating')->nullable();
 
             $table->string('avatar')->nullable();
 
             $table->boolean('active')->default(true);
 
-            $table->boolean('country');
+            $table->string('country');
         });
     }
 

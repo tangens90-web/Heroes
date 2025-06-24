@@ -6,6 +6,7 @@
 
 
 <form {{ $attributes }} method="{{ $_method ? $method : 'POST' }}">
+    @csrf
    @unless ($_method)
        @method($method)
    @endunless

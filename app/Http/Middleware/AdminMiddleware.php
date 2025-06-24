@@ -23,6 +23,6 @@ class AdminMiddleware
     }
     protected function isAdmin (Request $request)
     {
-        return true;
+        return auth()->check() && auth()->user()->isAdmin();
     }
 }
