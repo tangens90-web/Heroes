@@ -75,13 +75,13 @@ class PostController extends Controller
       
        
 
-        // $post = Post::query()->create([
-        //   'user_id'=> User::query()->value('id'),
-        //   'title'=> $validated['title'],
-        //   'content'=> $validated['content'],
-        //   'published_at'=> new Carbon($validated['published_at']?? null),
-        //   'published'=>$validated['published']?? false,
-        // ]);
+        $post = Post::query()->create([
+          'user_id'=> Auth::user()->id,
+          'title'=> $validated['title'],
+          'content'=> $validated['content'],
+          'published_at'=> new Carbon($validated['published_at']?? null),
+          'published'=>$validated['published']?? false,
+        ]);
         // $account;
         // $order;
         // if(true){
@@ -91,7 +91,10 @@ class PostController extends Controller
         // }
        
 
-        return redirect()->route('user.posts.show',123);
+        return redirect()->route('user.posts.show',
+        ['name'=>Auth::user()->name,
+        'post' => $post
+        ]);
     }
 
 
@@ -131,9 +134,10 @@ class PostController extends Controller
 
         return back();
     }
-      public function delete(Request $request){
+      public function delete(Request $request,$name,  $post){
+       
         $name = Auth::user()->name; 
-        $post =$request->route('post');
+        // $post =$request->route('post');
         $post = Post::find($post);
         $post->delete();
         return redirect()->route('user.posts', ['name' => $name]);

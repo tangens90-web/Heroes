@@ -1,15 +1,16 @@
   @vite(['resources/scss/app.scss'])
- <header class='py-3'>
+   {{-- <livewire:create-post  >
+     --}}
+ <header class='py-3 header'>
+   
      <div class='app-container'>
          <div class='flex justify-between text-lime-500'>
 
              <div class='header__tabs'>
-                 {{-- <a href="" class='{{ active_link('home', 'text-red-500') }}'
+                
                  
-                 rel="noopener noreferrer"></a> --}}
-                 
-                <x-logo>
-                    <img href="{{ route('home') }}" src="{{ asset('images/logo.png') }}" alt="{{ __('Логотип') }}">
+                <x-logo href="{{ route('home') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="{{ __('Логотип') }}">
                   
                 </x-logo>
                
@@ -26,12 +27,14 @@
 
              @auth
                  <!-- Пользователь авторизован: показываем его имя -->
+                 <div class='flex justify-right gap-2 items-center'>
                  <a href="{{ route('user.posts', ['name' => Auth::user()->name]) }}"> {{ Auth::user()->name }} </a>
-                 <li></li>
+                 
                  <form method="POST" action="{{ route('logout') }}">
                      @csrf
                      <button type="submit">Выход</button>
                  </form>
+                 </div>
              @else
                  <!-- Не авторизован: показываем вход и регистрацию -->
                  <ul>

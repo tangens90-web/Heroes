@@ -21,6 +21,7 @@
     <x-label>
       {{__('Название поста')}}
     </x-label>
+     {{-- <x-item autofocus name='title' value="{{ $post->title?? '' }}"></x-item> --}}
     <x-input autofocus name='title' value="{{ $post->title?? '' }}"/>
 
 
@@ -40,6 +41,9 @@
          <x-error name='content'></x-error>
          <div class='published_at'>
           <x-label required>{{__('Дата публикации')}}</x-label>
+
+
+          {{-- <x-item name='published_at'></x-item> --}}
           <x-input name='published_at' placeholder='dd.mm.yyyy'></x-input>
           <x-error name='published_at'></x-error>
          </div>

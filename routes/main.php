@@ -8,7 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 
 use App\Http\Controllers\BlogController;
-
+use App\Http\Controllers\HomeController;
 
 // use App\Http\Controllers\PostController;
 use App\Http\Controllers\Posts\CommentController;
@@ -26,14 +26,16 @@ use App\Http\Controllers\Posts\CommentController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Auth::routes();
 
-Route::view('/', 'home.index')->name('home');
+// Route::view('/', 'home.index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::redirect('/home', '/');
 
 
 // test
 // Route::get('/test',  TestController::class)->name('test')->middleware('token:secret,foosss');
-Route::get('/test',  TestController::class)->name('test');
+Route::get('/test',  [TestController::class,'index'])->name('test');
 Route::middleware('guest')->group(function(){
     // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

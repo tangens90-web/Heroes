@@ -1,9 +1,7 @@
-     <button 
-     {{ $attributes->class('bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')->merge([
-        'type'=>'button',
+     <button
+         {{ $attributes->class('bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')->merge([
+             'type' => 'button',
+         ]) }}>
 
-     ]) }}
-     >
-
-        {{ $slot }}
-        </button>
+         {{ $slot }}
+     </button>

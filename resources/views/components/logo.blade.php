@@ -1,3 +1,9 @@
+@props(['href' => ''])
+
+
 <div class='header__logo '>
-    {{ $slot }}
+    <a href="{{ $href }}">
+
+        {{ $slot }}
+    </a>
 </div>

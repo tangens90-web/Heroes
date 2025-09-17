@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('page.title',__('Игрок: ' . $player->username))
+@section('page.title',__('' . $player->username))
 
 
 @section('content')

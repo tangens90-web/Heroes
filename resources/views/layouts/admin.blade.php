@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('page.title','Админка')</title>
     @stack('css')
+     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
      
 </head>
 @include('parts.admin.header')

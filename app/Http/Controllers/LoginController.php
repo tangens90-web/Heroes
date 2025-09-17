@@ -46,13 +46,19 @@ class LoginController extends Controller
 //     }
      public function store(Request $request)
 {
+    //  $validated = $request->validate([
+    //     'email'=>['required', 'string','max:50','email','unique:users'],
+    //     'password'=>['required', 'string','min:6','max:50','unique:users','confirmed'],
+        
+        
+    //    ]);
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
         // Успешный вход, пользователь автоматически сохраняется в сессию
         return redirect()->intended('/'); // или нужный маршрут
     } else {
-        return back()->withErrors(['email' => 'Invalid credentials']);
+        return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
     }
 }
   public function logout(Request $request)
