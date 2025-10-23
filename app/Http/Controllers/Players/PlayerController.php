@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Player;
+namespace App\Http\Controllers\Players;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,6 +15,7 @@ class PlayerController extends Controller
 
     {
         $players = Player::query()->paginate(12);
+        // dd($players);
         return view('players.index',compact('players'));
         //
     }
@@ -39,10 +40,11 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request,$player)
+    public function show(Request $request,$id,$player)
     {
         //  $player = $request->route('player');
-        $player = Player::query()->where('username',$player)->firstOrFail();
+        $player = Player::find($id);
+        // $player = Player::query()->where('username',$player)->firstOrFail();
         // dd($player);
         return view('players.show',compact('player'));
     }

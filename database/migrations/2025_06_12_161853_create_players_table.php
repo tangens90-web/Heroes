@@ -17,7 +17,7 @@ return new class extends Migration
             
             $table->string('username');
             $table->string('name');
-            $table->string('surname');
+            $table->string('surname')->nullable();
             $table->string('birthday')->nullable();
             $table->string('rating')->nullable();
 
@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->boolean('active')->default(true);
 
-            $table->string('country');
+            $table->string('country')->nullable();
         });
     }
 

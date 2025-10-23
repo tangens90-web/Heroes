@@ -38,14 +38,17 @@ class RegisterController extends Controller
 
     // Авторизация нового пользователя
     $token = JWTAuth::fromUser($user);
+    $cookie = cookie('token', $token, 60 * 24); // срок жизни 1 день
 
-    return response()->json([
-        'access_token' => $token,
-        'token_type' => 'bearer',
-        'expires_in' => JWTAuth::factory()->getTTL() * 60,
-    ]);
-    //    dd($user->toArray());
-        return redirect()->route('user');
+return redirect('/')->cookie($cookie);
+
+    // return response()->json([
+    //     'access_token' => $token,
+    //     'token_type' => 'bearer',
+    //     'expires_in' => JWTAuth::factory()->getTTL() * 60,
+    // ]);
+    // //    dd($user->toArray());
+    //     return redirect()->route('user');
        
     }
 }

@@ -5,6 +5,7 @@
 @section('page.title',__('Просмотр Игрока') )
 
 @section('content')
+<div class='app-container'>
 <section> 
     <div class='app-container'>
         @if (empty($player))
@@ -31,6 +32,7 @@
 @endif
 
     </div>
+</div>
 </section>
 
 

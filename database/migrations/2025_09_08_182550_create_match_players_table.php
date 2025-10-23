@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('match_players', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('match_id')->constrained()->onDelete('cascade');
+            $table->foreignId('match_id')->constrained('matches')->onDelete('cascade');
             $table->foreignId('player_id')->nullable()->constrained()->onDelete('cascade');
             // Если у вас есть команды, можно добавить team_id:
             // $table->foreignId('team_id')->nullable()->constrained()->onDelete('cascade');
             $table->enum('side', ['1', '2']);// 1 или 2 — сторона в матче
-            $table->boolean('match_result')->nullable()->default(false);
+            $table->boolean('isWinner')->nullable()->default(null);
             $table->enum('result_points',['0','1','2','3'])->nullable()->default('0');
 
             // Чтобы не было дубликатов (один игрок в одном матче несколько раз)

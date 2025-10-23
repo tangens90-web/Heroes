@@ -1,7 +1,7 @@
 {{-- @props(['link','']) --}}
 
 
-<a class='w-[50px] h-auto block cursor-pointer' href="{{ $link }}">
+<a class='border mt-5 h-auto block cursor-pointer' href="{{ $link }}">
     {{ $slot }}
 
 </a>

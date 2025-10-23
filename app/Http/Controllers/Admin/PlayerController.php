@@ -15,7 +15,7 @@ class PlayerController extends Controller
     public function index()
     {
         $players = Player::query()->paginate(12);
-        return view('admin.index',compact('players'));
+        return view('admin.players.index',compact('players'));
         // return view('admin.index');
     }
 
@@ -26,7 +26,7 @@ class PlayerController extends Controller
 
     {
         //
-        return view('admin.create');
+        return view('admin.players.create');
     }
 
     /**
@@ -41,10 +41,10 @@ class PlayerController extends Controller
         ]);
          $validated = $request->validate([  
             'username'=>['required','string','max:100','unique:players,username','regex:/^\S+$/'],
-            'name'=>['string','max:100'],
-            'surname'=>['string','max:100'],
+            'name'=>['nullable','string','max:100'],
+            'surname'=>['nullable','string','max:100'],
             'avatar' => [ 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
-            'country'=>['string'],
+            'country'=>['nullable','string'],
             'birthday'=>['nullable','string']
             // 'published_at'=>['nullable','date','string'],
             // 'published'=>['nullable','boolean'], 
@@ -79,17 +79,21 @@ class PlayerController extends Controller
         ]);
 
         // dd($player);
-         return redirect()->route('admin.player.show',$player);
+         return redirect()->route('admin.player.show',[
+    'id' => $player->id,
+    'player' => $player->username,
+]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($player)
+    public function show($id)
 
     {
-        $player = Player::findOrFail($player);
-        return view('admin.show',compact('player'));
+        // dd($id);
+        $player = Player::findOrFail($id);
+        return view('admin.players.show',compact('player'));
         //
     }
 

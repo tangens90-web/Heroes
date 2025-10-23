@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date('start_date')->notNullable();
+            $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->enum('type', ['1v1'])->default('1v1');
             // $table->enum('type', ['1v1', '2v2','1v1v1','1v1v1v1'])->default('1v1');
             $table->foreignId('tournament_id')->nullable()->constrained('tournaments')->onDelete('cascade');
-            $table->foreignId('stages_id')->nullable()->constrained('stages')->onDelete('cascade');
+            $table->foreignId('stage_id')->nullable()->constrained('stages')->onDelete('set null');
             $table->enum('bo_format', ['bo1','bo2','bo3','bo4','bo5'])->nullable();
             $table->enum('status', ['not started','active','finished','cancelled'])->nullable();
             // $table->boolean('active')->default(false);

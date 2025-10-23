@@ -35,7 +35,7 @@ Route::redirect('/home', '/');
 
 // test
 // Route::get('/test',  TestController::class)->name('test')->middleware('token:secret,foosss');
-Route::get('/test',  [TestController::class,'index'])->name('test');
+// Route::get('/test',  [TestController::class,'index'])->name('test');
 Route::middleware('guest')->group(function(){
     // register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

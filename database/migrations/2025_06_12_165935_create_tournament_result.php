@@ -15,17 +15,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger('player_id'); // внешний ключ на игроков
-            
-            $table->unsignedBigInteger('tournament_id');
-            // другие поля
-            
-
-            $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
-            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
            
-            $table->string('final_place')->nullable();
-            $table->string('earned')->nullable();
+            
+            $table->foreignId('player_id')->constrained('players')->onDelete('cascade');
+           
+            $table->foreignId('tournament_id')->constrained('tournaments')->onDelete('cascade');
+           
+            $table->unsignedSmallInteger('final_place')->nullable();
+            $table->string('earned_money')->nullable();
             $table->unique(['tournament_id', 'player_id']);
         });
     }

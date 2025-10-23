@@ -10,7 +10,7 @@
         @foreach ($players as $player)
             <div class=''>
 
-                <x-player.link class='block h-auto' :link="route('player.show', ['player' => $player->username])">
+                <x-player.link class='block h-auto' :link="route('players.show', ['id'=>$player->id,'player' => $player->username])">
                     <div class=''>
                         <h3 class='my-5'>{{ $player->username }}</h3>
 

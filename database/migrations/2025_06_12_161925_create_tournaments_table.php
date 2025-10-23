@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('format')->nullable();
            
             $table->string('prize_fund');
-
+            $table->unsignedSmallInteger('number_participants');
             $table->string('image')->nullable();
 
             $table->boolean('active')->default(false);

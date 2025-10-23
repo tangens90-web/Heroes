@@ -37,11 +37,11 @@
                     @endif
                 </ul>
 {{-- сторона 3 --}}
-@if ($match->typeIsAllowed())
+{{-- @if ($match->typeIsAllowed())
     <li>Тип матча не 1v1v1 и не 1v1v1v1</li>
     @else <li>Тип матча нет такого</li>
 
-@endif
+@endif --}}
             </div>
         @endforeach
 

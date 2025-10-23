@@ -1,6 +1,7 @@
   @vite(['resources/scss/app.scss'])
-   {{-- <livewire:create-post  >
-     --}}
+   {{-- <livewire:test  > --}}
+      {{-- <livewire:player-select  > --}}
+   {{-- @livewire('create-post') --}}
  <header class='py-3 header'>
    
      <div class='app-container'>
@@ -18,7 +19,7 @@
                       
                 
                  {{-- <a href="{{ route('user') }}" class='{{ active_link('user*', 'text-red-500' ) }}' rel="noopener noreferrer">{{ __('Юзер') }}</a> --}}
-               <x-tab href="{{ route('players') }}" class="{{ active_link('player*', 'text-red-500') }}" text="{{ __('Игроки') }}" >
+               <x-tab href="{{ route('players.index') }}" class="{{ active_link('player*', 'text-red-500') }}" text="{{ __('Игроки') }}" >
                 
                </x-tab>
                {{-- <x-tab href="{{ route('tournaments') }}" class="{{ active_link('tournament*', 'text-red-500') }}" text="{{ __('Турниры') }}" /> --}}

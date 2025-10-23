@@ -6,6 +6,7 @@
 @section('page.title',__('Добавление Игрока') )
 
 @section('content')
+<div class='app-container'>
 
 <div class='flex justify-center'>
     <x-errors></x-errors>
@@ -39,6 +40,7 @@
     <x-button type='submit'>Добавить игрока</x-button>
 
     </x-form>
+</div>
     @endsection
 
 @push('css')

@@ -7,7 +7,7 @@
     'value' => '',
     'label' => '',
     'labelClass' =>'',
-    'inputClass'=>''
+    'inputClass'=>'',
     'placeholder' => null,
 ])
 
